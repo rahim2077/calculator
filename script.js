@@ -2,12 +2,12 @@ let display = document.getElementById("display");
 
 function append(value) {
 
-    // যদি শুধু 0 থাকে এবং নতুন number দেওয়া হয়
+    
     if (display.value === "0" && value !== "." && value !== "%" 
         && value !== "/" && value !== "*" 
         && value !== "-" && value !== "+") {
         
-        display.value = value; // 0 replace করবে
+        display.value = value; 
     } 
     else {
         display.value += value;
@@ -15,8 +15,7 @@ function append(value) {
 }
 
 function clearDisplay() {
-    display.value = "0"; // Clear করলে আবার 0 দেখাবে
-}
+    display.value = "0";
 
 function deleteLast() {
     if (display.value.length > 1) {
