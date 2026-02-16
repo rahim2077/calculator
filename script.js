@@ -1,34 +1,28 @@
 let display = document.getElementById("display");
 
-function append(value) {
-
-    
-    if (display.value === "0" && value !== "." && value !== "%" 
-        && value !== "/" && value !== "*" 
-        && value !== "-" && value !== "+") {
-        
-        display.value = value; 
-    } 
-    else {
+function append(value){
+    if(display.value === "0"){
+        display.value = value;
+    }else{
         display.value += value;
     }
 }
 
-function clearDisplay() {
+function clearDisplay(){
     display.value = "0";
+}
 
-function deleteLast() {
-    if (display.value.length > 1) {
-        display.value = display.value.slice(0, -1);
-    } else {
+function deleteLast(){
+    display.value = display.value.slice(0,-1);
+    if(display.value === ""){
         display.value = "0";
     }
 }
 
-function calculate() {
-    try {
+function calculate(){
+    try{
         display.value = eval(display.value);
-    } catch {
+    }catch{
         display.value = "Error";
     }
 }
