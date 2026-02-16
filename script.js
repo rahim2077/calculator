@@ -1,15 +1,29 @@
 let display = document.getElementById("display");
 
 function append(value) {
-    display.value += value;
+
+    // যদি শুধু 0 থাকে এবং নতুন number দেওয়া হয়
+    if (display.value === "0" && value !== "." && value !== "%" 
+        && value !== "/" && value !== "*" 
+        && value !== "-" && value !== "+") {
+        
+        display.value = value; // 0 replace করবে
+    } 
+    else {
+        display.value += value;
+    }
 }
 
 function clearDisplay() {
-    display.value = "";
+    display.value = "0"; // Clear করলে আবার 0 দেখাবে
 }
 
 function deleteLast() {
-    display.value = display.value.slice(0, -1);
+    if (display.value.length > 1) {
+        display.value = display.value.slice(0, -1);
+    } else {
+        display.value = "0";
+    }
 }
 
 function calculate() {
